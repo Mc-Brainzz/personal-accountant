@@ -20,6 +20,8 @@ class CloudinarySettings(BaseSettings):
     """Cloudinary image enhancement service configuration."""
     
     model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
         env_prefix="CLOUDINARY_",
         extra="ignore"
     )
@@ -42,6 +44,8 @@ class MindeeSettings(BaseSettings):
     """Mindee OCR service configuration."""
     
     model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
         env_prefix="MINDEE_",
         extra="ignore"
     )
@@ -56,6 +60,8 @@ class GoogleSheetsSettings(BaseSettings):
     """Google Sheets storage configuration."""
     
     model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
         env_prefix="GOOGLE_SHEETS_",
         extra="ignore"
     )
@@ -96,8 +102,11 @@ class GeminiSettings(BaseSettings):
     """Gemini LLM configuration."""
     
     model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
         env_prefix="GEMINI_",
-        extra="ignore"
+        extra="ignore",
+        protected_namespaces=()  # Disable protected namespace warning for model_name
     )
     
     api_key: str = Field(
