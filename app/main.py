@@ -17,6 +17,13 @@ The UI enforces the human-in-the-loop principle:
 - Nothing is saved without explicit "Save" action
 """
 
+import sys
+from pathlib import Path
+
+# Add project root to Python path so 'src' module can be found
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 import asyncio
 from datetime import date, datetime
 from decimal import Decimal
